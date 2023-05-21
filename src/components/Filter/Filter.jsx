@@ -1,13 +1,13 @@
 import { LabelFilter, InputFilter } from './Filter.styled'
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilterContacts } from '../../redux/filterSlice';
-import { selectNameFilter } from '../../redux/selectors';
+import { setFilterContacts } from 'redux/contacts/filterSlice';
+import { selectFilter } from 'redux/contacts/selectors';
 
 const filterId = nanoid();
 
 export const Filter = () => {
-    const filter = useSelector(selectNameFilter);
+    const filter = useSelector(selectFilter);
     const dispatch = useDispatch();
 
     const onChange = event => dispatch(setFilterContacts(event.currentTarget.value));
